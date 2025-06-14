@@ -11,6 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/style.css">
   
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
 </head>
 <body>
   <header>
@@ -24,6 +29,29 @@
       <a href="#"> <i class="fa-brands fa-instagram"></i></a>
     </nav>
   </header>
+
+  <div class="img-slider">
+    <!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide"><img src="Assests/images/IMG-20220912-WA0004.jpeg" alt=""></div>
+    <div class="swiper-slide"><img src="Assests/images/audience01.jpeg" alt=""></div>
+    <div class="swiper-slide"><img src="Assests/images/Band02.jpeg" alt=""></div>
+    <div class="swiper-slide"><img src="Assests/images/student01.jpeg" alt=""></div>
+    <div class="swiper-slide"><img src="Assests/images/ITLab.jpeg" alt=""></div>
+    
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+</div>
+  </div>
 
   <section class="hero">
     <h2>Welcome to Aparekka Maha Vidyalaya</h2>
@@ -52,13 +80,8 @@
     <p>&copy; 2025 Aparekka Maha Vidyalaya. All rights reserved.</p>
     <p>Developed by <span style="color: yellowgreen; font-weight: 600;">Nipun Rajapakshe</span></p>
   </footer>
-
-  <script>
-    // JS can be extended here later for interactivity
-    console.log("Welcome to Aparekka Maha Vidyalaya website!");
-    const msg1 = "This Website is under construction.";
-    alert(msg1);
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="JS/script.js"></script>
 </body>
 </html>
 

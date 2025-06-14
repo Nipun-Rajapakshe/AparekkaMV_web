@@ -1,5 +1,6 @@
 :root {
   --primary-color: #0d1b4c; /* Dark Blue */
+  --primary-transparent: rgba(13, 27, 76, 0.76);
   --accent-color: #ffd700; /* Gold */
   --text-color: #ffffff;
   --bg-color: #f5f5f5;
@@ -15,16 +16,20 @@ body {
   color: var(--primary-color);
 }
 header {
-  background-color: var(--primary-color);
+  background-color: var(--primary-transparent);
+  backdrop-filter: blur(2px);
   color: var(--text-color);
-  padding: 1rem 2rem;
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.4);
+  padding: 0.1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid;
+  position: relative;
+  z-index: 2;
+  
 }
 header .logo img{
-  width: 90px;
+  width: 60px;
   background-color: var(--text-color);
   border-radius: 10px;
 }
@@ -52,7 +57,37 @@ nav .menu-icon{
   margin-right: 1.5rem;
   
   padding: 5px;
-} 
+}
+
+/* Image Slider */
+.img-slider{
+  width: 100%;
+  height: auto;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.swiper{
+  width: 99%;
+  height: fit-content;
+}
+.swiper-slide img{
+  width: 100%;
+  height: auto;
+  
+}
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+  color: var(--accent-color);
+}
+.swiper .swiper-pagination-bullet-active{
+  background: var(--accent-color);
+}
+
 .under-construction{
   color: var(--text-color);
   display: flex;
