@@ -1,7 +1,7 @@
 // JS can be extended here later for interactivity
     console.log("Welcome to Aparekka Maha Vidyalaya website!");
     const msg1 = "This Website is under construction.";
-    // alert(msg1);
+    alert(msg1);
 
 const swiper = new Swiper('.swiper', {
 autoplay: {
@@ -73,3 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', handleScroll);
 });
+
+// Scroll Animation
+
+AOS.init({
+        duration: 1000,
+        once: true,
+    });
