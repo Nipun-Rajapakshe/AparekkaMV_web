@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation Example</title>
+   <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.intro, footer {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0; /* Adjust margin to ensure scrolling */
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+
+    /* Hidden by default, will be revealed by JS */
+    opacity: 0;
+    transform: translateY(20px); /* Initial state for slide-up effect */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* Animation specific styles */
+.box.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.box.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.box.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.box.zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Class added by JavaScript when element is visible */
+.box.visible {
+    opacity: 1;
+    transform: none; /* Reset transform to original state */
+}
+   </style> 
+</head>
+<body>
+    <header>
+        <h1>My Awesome Website</h1>
+    </header>
+
+    <section class="intro">
+        <p>ස්ක්‍රෝල් ඇනිමේෂන් ගැන ඉගෙන ගනිමු!</p>
+    </section>
+
+    <section class="content">
+        <div class="box fade-in">
+            <h2>Box 1</h2>
+            <p>මෙය තිරය මතට එන විට ක්‍රියාත්මක වන ඇනිමේෂන් එකකි.</p>
+        </div>
+        <div class="box slide-left">
+            <h2>Box 2</h2>
+            <p>මෙය වමට ස්ලයිඩ් වන ඇනිමේෂන් එකකි.</p>
+        </div>
+        <div class="box slide-right">
+            <h2>Box 3</h2>
+            <p>මෙය දකුණට ස්ලයිඩ් වන ඇනිමේෂන් එකකි.</p>
+        </div>
+        <div class="box zoom-in">
+            <h2>Box 4</h2>
+            <p>මෙය විශාල වන ඇනිමේෂන් එකකි.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Scroll Animations</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // අපි ඇනිමේට් කරන්න ඕන எல்லா elements තෝරා ගනිමු
+    const animatedBoxes = document.querySelectorAll('.box');
+
+    // Intersection Observer එක නිර්වචනය කරමු
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // මූලද්‍රව්‍යය තිරය මතට ඇවිත්ද කියලා බලමු
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // visible ක්ලාස් එක එකතු කරමු
+                observer.unobserve(entry.target); // ඇනිමේෂන් එක වරක් ක්‍රියාත්මක වූ පසු observer එක ඉවත් කරමු
+            }
+        });
+    }, {
+        threshold: 0.5 // මූලද්‍රව්‍යයෙන් 50% ක් තිරය මත තිබිය යුතුයි
+    });
+
+    // හැම animated box එකක්ම observe කරමු
+    animatedBoxes.forEach(box => {
+        observer.observe(box);
+    });
+});
+    </script>
+</body>
+</html>
