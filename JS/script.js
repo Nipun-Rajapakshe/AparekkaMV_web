@@ -1,7 +1,7 @@
 // JS can be extended here later for interactivity
     console.log("Welcome to Aparekka Maha Vidyalaya website!");
     const msg1 = "This Website is under construction.";
-    alert(msg1);
+    // alert(msg1);
 
 const swiper = new Swiper('.swiper', {
 autoplay: {
@@ -74,9 +74,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 });
 
-// Scroll Animation
 
-AOS.init({
-        duration: 1000,
-        once: true,
+// Scroll Animation
+document.addEventListener('DOMContentLoaded', () => {
+    // අපි ඇනිමේට් කරන්න ඕන எல்லா elements තෝරා ගනිමු
+    const animatedBoxes = document.querySelectorAll('.box');
+
+    // Intersection Observer එක නිර්වචනය කරමු
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // මූලද්‍රව්‍යය තිරය මතට ඇවිත්ද කියලා බලමු
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // visible ක්ලාස් එක එකතු කරමු
+                observer.unobserve(entry.target); // ඇනිමේෂන් එක වරක් ක්‍රියාත්මක වූ පසු observer එක ඉවත් කරමු
+            }
+        });
+    }, {
+        threshold: 0.5 // මූලද්‍රව්‍යයෙන් 50% ක් තිරය මත තිබිය යුතුයි
     });
+
+    // හැම animated box එකක්ම observe කරමු
+    animatedBoxes.forEach(box => {
+        observer.observe(box);
+    });
+});
