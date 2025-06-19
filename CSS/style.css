@@ -61,7 +61,7 @@ header nav {
   gap: 10px;
 }
 
-nav a:not(:first-child) {
+.nav01 a:not(:first-child) {
   color: var(--accent-color);
   margin-left: 1rem;
   text-decoration: none;
@@ -70,7 +70,7 @@ nav a:not(:first-child) {
   transition: all 0.4s ease;
 }
 
-nav a:not(:first-child):hover {
+.nav01 a:not(:first-child):hover {
   font-size: 1.45rem;
 }
 
@@ -80,6 +80,97 @@ nav .menu-icon {
   margin-right: 1.5rem;
   padding: 5px;
   
+}
+
+/* Hidden NavBar */
+.hidden-nav{
+  display: none;
+  height: auto;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  background-color: rgba(4, 57, 162, 0.5);
+  backdrop-filter: blur(6px);
+
+  animation: fadeIn 0.5s ease-out;
+}
+.hidden-nav.show{
+  display: block;
+}
+.hidden-nav .upper-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+.upper-detail .logo img{
+  width: 100px;
+}
+.upper-detail .contact-detail{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--text-color);
+}
+.upper-detail .contact-detail a{
+  font-size: 1.1rem;
+  color: var(--accent-color-after);
+  text-decoration: none;
+  margin-left: 2rem;
+}
+.upper-detail .close-icon{
+  color: var(--text-color);
+  font-size: 1.7rem;
+  position: fixed;
+  top: 40px;
+  right: 30px;
+}
+
+.main-content{
+  display: flex;
+  flex-direction: row;
+}
+.main-nav{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+  
+  margin: 2rem;
+  align-items: start;
+  justify-content: space-evenly;
+}
+.main-nav div{
+  padding: 1rem;
+  margin: 1rem;
+  
+}
+.main-nav li{
+  list-style: none;
+}
+.main-content .nav-image{
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+}
+.main-content .nav-image img{
+  width: 200px;
+  object-fit: cover;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Scroll Watcher */
@@ -526,7 +617,7 @@ nav .menu-icon {
 
 /* Footer */
 footer.box {
-  background: linear-gradient(to top, var(--primary-color), gray);
+  background: linear-gradient(to top, var(--primary-color), var(--secondery-color));
   color: var(--text-color);
   padding: 0;
   display: flex;

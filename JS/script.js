@@ -120,3 +120,14 @@ function openTab(evt, tabName){
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".tab-button").click();
 });
+
+// Hidden NavBar
+const navbar = document.getElementById("navbar")
+
+function openNavbar(){
+    navbar.classList.add('show')
+}
+
+function closeNavBar(){
+    navbar.classList.remove('show')
+}
